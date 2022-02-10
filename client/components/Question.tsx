@@ -60,7 +60,6 @@ const Question = ({ data, handleNext, addAnswer }: PropTypes) => {
             aria-labelledby='question-label'
             name='radio-buttons-group'
             onChange={(e) => {
-              console.log(e.target.value)
               setValue(e.target.value)
             }}
           >
