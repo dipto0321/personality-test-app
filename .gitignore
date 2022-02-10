@@ -305,3 +305,6 @@ server/dev.sh
 server/.venv
 server/.deta
 
+
+# Local Netlify folder
+.netlify
