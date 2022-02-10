@@ -47,6 +47,14 @@ const Home: NextPage = () => {
     const newAnswer = [...answer, value]
     setAnswer(newAnswer)
   }
+
+  const reset = () => {
+    setPersonality('')
+    setShowPersonality(false)
+    setAnswer([])
+    setCount(0)
+    handleStartQuiz()
+  }
   
   return (
     <Box>
@@ -85,11 +93,8 @@ const Home: NextPage = () => {
           >
             {`You are ${personality}`}
           </Typography>
-          <Button variant='contained' size='large' sx={{mt:2}} onClick={() => {
-            setShowPersonality(false)
-            setAnswer([])
-            setCount(0)
-            handleStartQuiz()
+          <Button variant='contained' size='large' sx={{ mt: 2 }} onClick={() => {
+            reset()
           }}>
             Go to main
           </Button>
