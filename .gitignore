@@ -303,3 +303,5 @@ yarn-error.log*
 
 server/dev.sh
 server/.venv
+server/.deta
+

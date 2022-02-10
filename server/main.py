@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 import json
-from src.questions import questions
-from src.calculate_personaly_score import calculate_score
+from utils.questions import questions
+from utils.calculate_personaly_score import calculate_score
 
 description = """
 Personality test API helps you to generate your personality. 🚀
