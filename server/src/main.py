@@ -3,7 +3,9 @@ from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+import json
 from src.questions import questions
+from src.calculate_personaly_score import calculate_score
 
 description = """
 Personality test API helps you to generate your personality. 🚀
@@ -46,7 +48,7 @@ def get_question():
     )
 
 
-@app.get("/questions/<:id>", status_code=status.HTTP_200_OK)
+@app.get("/questions/{id}", status_code=status.HTTP_200_OK)
 def get_question_by_id(id: int):
     res = {}
     question_length = len(questions)
@@ -58,3 +60,10 @@ def get_question_by_id(id: int):
         res["data"] = []
 
     return JSONResponse(content=res)
+
+
+@app.get("/score", status_code=status.HTTP_200_OK)
+def get_score(answer_arr: str):
+    answers = json.loads(answer_arr)
+    result = calculate_score(answers)
+    return JSONResponse(content={"data": result})
