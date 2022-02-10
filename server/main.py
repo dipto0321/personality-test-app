@@ -22,9 +22,7 @@ app = FastAPI(
     },
 )
 
-origins = [
-    "http://localhost:3000",
-]
+origins = ["http://localhost:3000", "https://personality-test-app.netlify.app/"]
 
 app.add_middleware(
     CORSMiddleware,
